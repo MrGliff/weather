@@ -8,11 +8,14 @@
 }
 body {
   background: #E3F2FD;
+  /* background: linear-gradient(180deg, #5ab9fc 0%, #FFF 100%); */
+  background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
 }
 
 .header {
   display: flex;
   justify-content: space-between;
+  padding-right: 15px;
   align-items: center;
   background: #000;
   color: #fff;
@@ -32,13 +35,11 @@ body {
 h1 {
   font-size: 1.75rem;
   padding: 18px;
-  cursor: pointer;
 }
 
 .header li {
   list-style: none;
   padding: 18px;
-  cursor: pointer;
 }
 
 .header a {
@@ -50,6 +51,7 @@ h1 {
   display: flex;
   gap: 35px;
   padding: 30px;
+  height: 90vh;
 }
 .weather-input {
   width: 550px;
@@ -72,18 +74,20 @@ h1 {
   height: 1px;
   width: 100%;
   margin: 25px 0;
-  background: #BBBBBB;
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .weather-input .separator::before{
-  content: "or";
+  content: "OR";
+  font-weight: bolder;
   color: #6C757D;
   font-size: 1.18rem;
   padding: 0 15px;
   margin-top: -4px;
-  background: #E3F2FD;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 5px;
 }
 .weather-input button {
   width: 100%;
@@ -98,7 +102,7 @@ h1 {
   transition: 0.2s ease;
 }
 .weather-input .search-btn:hover {
-  background: #2c52ed;
+  background: #3c4045;
 }
 .weather-input .location-btn {
   background: #6C757D;
@@ -110,8 +114,12 @@ h1 {
   width: 100%;
 }
 .weather-data .current-weather {
-  color: #fff;
-  background: #000;
+  color: #000;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: #888 0px 0px 10px;
+  backdrop-filter: blur( 2.5px );
+  -webkit-backdrop-filter: blur( 1.5px );
+  border: none;
   border-radius: 5px;
   padding: 20px 70px 20px 20px;
   display: flex;
@@ -165,6 +173,84 @@ h1 {
 .gap {
   margin-top: 20px;
   padding: 5px;
+}
+
+:root {
+  --box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  --border-radius: 10px;
+
+}
+
+ .form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur( 1.5px );
+  -webkit-backdrop-filter: blur( 1.5px );
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  width: 30vw;
+  height: auto;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form h1 {
+  text-align: center;
+}
+
+.form-item {
+  margin-bottom: 15px;
+}
+
+.form-item label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-item input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  transition: 300ms;
+}
+
+.form-item input:focus, .form-item input:hover {
+  outline: none;
+  border-color: #007bff;
+}
+
+.login-or-signup {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form form button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+
+.form form button[type="submit"]:hover {
+  background-color: #0056b3;
 }
 
 @media (max-width: 1400px) {

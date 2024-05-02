@@ -3,9 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Weatherio</title>
+  <title>Weather.io</title>
   <link rel="stylesheet" href="styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/587ca56a48.js" crossorigin="anonymous"></script>
   <script src="script.js" defer></script>
 </head>
 
@@ -13,19 +14,13 @@
   <div class="header">
     <h1><a href="./index.html">Dashboard</a></h1>
     <div class="nav">
-      <li><a href="./favourites.html">Favourites</a></li>
-      <li><a href="profile.html">Profile</a></li>
-      <li>Logout</li>
-      <div class="login">
-        <li>Login</li>
-        <li>Sign Up</li>
-      </div>
+      <li><a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a></li>
     </div>
   </div>
   <div class="container">
     <div class="weather-input">
       <h3>Enter a City Name</h3>
-      <input class="city-input" type="text" placeholder="E.g., New York, London, Tokyo">
+      <input class="city-input" type="text" placeholder="For eg. London, Tokyo">
       <button class="search-btn">Search</button>
       <div class="separator"></div>
       <button class="location-btn">Use Current Location</button>

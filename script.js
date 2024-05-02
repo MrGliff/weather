@@ -9,18 +9,18 @@ const API_KEY = "5dfd872886a5b16a99c8581a7f89f13d";
 const createWeatherCard = (cityName, weatherItem, index) => {
     if (index === 0) { // HTML for the main weather card
         return `<div class="details">
-                    <h2>${cityName} (${weatherItem.dt_txt.split(" ")[0]})</h2>
-                    <h6>Temperature: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C</h6>
-                    <h6>Wind: ${weatherItem.wind.speed} M/S</h6>
-                    <h6>Humidity: ${weatherItem.main.humidity}%</h6>
-                </div>
-                <div class="icon">
-                    <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@4x.png" alt="weather-icon">
-                    <h6>${weatherItem.weather[0].description}</h6>
-                </div>`;
+                <h2>${cityName} (${new Date(weatherItem.dt_txt).toLocaleDateString('en-US', { day: 'numeric', month: 'long' })}) <i class="fa-regular fa-star" onclick=""></i></h2>
+                <h6>Temperature: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C</h6>
+                <h6>Wind: ${weatherItem.wind.speed} M/S</h6>
+                <h6>Humidity: ${weatherItem.main.humidity}%</h6>
+            </div>
+            <div class="icon">
+                <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@4x.png" alt="weather-icon">
+                <h6>${weatherItem.weather[0].description}</h6>
+            </div>`;
     } else { // HTML for the other five day forecast card
         return `<li class="card">
-                    <h3>(${weatherItem.dt_txt.split(" ")[0]})</h3>
+                    <h3>${new Date(weatherItem.dt_txt).toLocaleDateString('en-US', { day: 'numeric', month: 'long' })}</h3>
                     <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}@4x.png" alt="weather-icon">
                     <h6>Temp: ${(weatherItem.main.temp - 273.15).toFixed(2)}°C</h6>
                     <h6>Wind: ${weatherItem.wind.speed} M/S</h6>
@@ -98,6 +98,7 @@ const getUserCoordinates = () => {
         });
 }
 
+// getWeatherDetails("Mumbai", 19.0785451, 72.878176);
 locationButton.addEventListener("click", getUserCoordinates);
 searchButton.addEventListener("click", getCityCoordinates);
 cityInput.addEventListener("keyup", e => e.key === "Enter" && getCityCoordinates());
